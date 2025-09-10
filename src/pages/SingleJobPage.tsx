@@ -1,3 +1,7 @@
 export const SingleJobPage = () => {
-  return <>SingleJobPage</>;
+  return (
+  <>
+    SingleJobPage
+  </>
+);
 };

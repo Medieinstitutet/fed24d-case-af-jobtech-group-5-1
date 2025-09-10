@@ -1,3 +1,7 @@
 export const ResultsPage = () => {
-  return <>HomePage</>;
+  return (
+    <>
+      Hej hej igen
+    </>
+  );
 };
