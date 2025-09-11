@@ -5,10 +5,6 @@
   text-align: center;
 }
 
-.my-class {
-  --digi--button--color--background--primary--default: #000;
-}
-
 .logo {
   height: 6em;
   padding: 1.5em;
