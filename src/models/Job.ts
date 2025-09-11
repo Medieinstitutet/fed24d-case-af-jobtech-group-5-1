@@ -1,9 +1,16 @@
+export type JobResult = {
+  total: number;
+  hits: Job[];
+};
+
 export type Job = {
   id: string;
   logo_url: string | null;
   headline: string;
+  number_of_vacancies: number | null;
   description: {
     text: string;
+    text_formatted: string;
   };
   employment_type: {
     label: string | null;
@@ -17,6 +24,7 @@ export type Job = {
   employer: {
     url: string | null;
     name: string | null;
+    workplace: string | null;
   };
   occupation: {
     label: string | null;
@@ -33,8 +41,7 @@ export type Job = {
   };
   workplace_address: {
     region: string | null;
-    region_code: string | null;
-    region_concept_id: string | null;
+    municipality: string | null;
   };
   publication_date: string;
 };
