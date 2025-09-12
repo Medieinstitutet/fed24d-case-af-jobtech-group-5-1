@@ -18,6 +18,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  margin: 0;
+}
+
 .menu {
   --digi--color--text--secondary: #ffffff;
   --digi--color--text--link: #ffffff;
@@ -76,6 +80,13 @@
   --digi--color--border--secondary: #83675A;
 }
 
+.info-card {
+  --digi--color--background--neutral-5: #ffffff;
+  --digi--color--text--primary: #000;
+  --digi--color--text--link: #000;
+  --digi--link-internal--color--hover: #E5734E;
+}
+
 /* a {
   font-weight: 500;
   color: #646cff;
@@ -117,7 +128,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 } */
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -128,4 +139,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */

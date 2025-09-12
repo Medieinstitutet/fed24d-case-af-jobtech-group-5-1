@@ -3,6 +3,7 @@ import { Layout } from "./components/Layout";
 import { HomePage } from "./pages/HomePage";
 import { ResultsPage } from "./pages/ResultsPage";
 import { SingleJobPage } from "./pages/SingleJobPage";
+import { ArticlePage } from "./pages/ArticlePage";
 
 export const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
             {
                 path: "result/:id",
                 element: <SingleJobPage />,
+            },
+            {
+                path: "artiklar/:slug",
+                element: <ArticlePage />,
             },
         ],
     },
