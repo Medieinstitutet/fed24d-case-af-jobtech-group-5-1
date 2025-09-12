@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { JobResult, Job } from "../models/Job";
 
-const BASE_URL = "https://jobsearch.api.jobtechdev.se/search?";
+export const BASE_URL = "https://jobsearch.api.jobtechdev.se/search?";
 
 interface JobsParams {
   offset?: number;
