@@ -1,6 +1,5 @@
 import { useParams } from "react-router";
 import { articles } from "../data/articles";
-import "../styles/ArticlePage.scss";
 import { DigiLink } from "@digi/arbetsformedlingen-react";
 import { LinkVariation } from "@digi/arbetsformedlingen";
 
