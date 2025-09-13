@@ -1,7 +1,7 @@
 import { useJobContext } from "../context/JobContext";
 import { DigiLink } from "@digi/arbetsformedlingen-react";
 import { LinkVariation } from "@digi/arbetsformedlingen";
-import { formatDateTime } from "../services/formatDateTime";
+import { formatDateTime } from "../services/formatDateTime.ts";
 
 export const ResultCard = () => {
   const { state } = useJobContext();

@@ -16,8 +16,57 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --af-header-background-color: #926824; /* huvudfärgen på headern */
+  --digi--color--background--brand-1: #926824; /* extra stöd, vissa versioner använder denna */
+  --af-header-color: #ffffff;
+  --af-header-border-color: transparent;
+  --af-header-height: 64px;
+}
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
+/* Logotyp och systemnamn */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--af-header-color);
+}
+
+.brand__img {
+  height: 40px;
+  width: auto;
+}
+
+.brand__name {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+/* Systemnamn från DigiHeader (om inte dolt) */
+digi-header::part(system-name) {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--af-header-color);
+}
+
+/* Navigation */
+digi-header-navigation a {
+  color: var(--af-header-color);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  display: block;
+}
+
+digi-header-navigation a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
 body {
   margin: 0;
 }
