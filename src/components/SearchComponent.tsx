@@ -1,7 +1,7 @@
 import { regions, occupation } from "../services/mappedData";
 import { useJobContext } from "../context/JobContext";
-import { FormInputSearchVariation, FormInputType, ButtonSize, ButtonVariation } from "@digi/arbetsformedlingen";
-import { DigiFormFilter, DigiButton, DigiFormInputSearch } from "@digi/arbetsformedlingen-react";
+import { FormInputSearchVariation, FormInputType } from "@digi/arbetsformedlingen";
+import { DigiFormFilter, DigiFormInputSearch } from "@digi/arbetsformedlingen-react";
 
 export const SearchComponent = () => {
   const { dispatch } = useJobContext();
@@ -14,6 +14,7 @@ export const SearchComponent = () => {
           afVariation={FormInputSearchVariation.LARGE}
           afType={FormInputType.SEARCH}
           afButtonText="Sök"
+                  className="search"
           onAfOnSubmitSearch={(e: any) => {
             dispatch({ type: "SET_QUERY", payload: e.detail }); 
           }}
@@ -37,15 +38,6 @@ export const SearchComponent = () => {
         className="filter"
         onAfSubmitFilter={(e: any) => dispatch({ type: "SET_OCCUPATION", payload: e.detail.checked[0] })}
       />
-
-      <DigiButton
-        afSize={ButtonSize.MEDIUM}
-        afVariation={ButtonVariation.PRIMARY}
-        afFullWidth={false}
-        className="my-class"
-      >
-        Visa resultat
-      </DigiButton>
     </>
   );
 };
