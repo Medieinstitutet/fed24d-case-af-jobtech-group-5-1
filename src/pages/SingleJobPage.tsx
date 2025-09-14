@@ -22,7 +22,7 @@ export const SingleJobPage = () => {
           <p>Antal tjänster: {job.number_of_vacancies}</p>
         )}
         <h2>Om jobbet</h2>
-        <blockquote>{job.description.text}</blockquote>
+        <blockquote dangerouslySetInnerHTML={{ __html: job.description.text_formatted }} />
         <h2>Om anställningen</h2>
         {job.salary_type?.label && (
           <>
