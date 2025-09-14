@@ -9,12 +9,9 @@ export const ResultsComponent = () => {
   const { state } = useJobContext();
   const limit = 25;
   const [currentPage, setCurrentPage] = useState(1);
+  const offset = limit * (currentPage - 1);
 
-  const totalResults = 500; 
-
-    const offset = limit * (currentPage - 1);
-
-          const jobs = useJobs({
+  const { hits: jobs, totalResults } = useJobs({
     offset,
     limit,
     q: state.query,
@@ -26,7 +23,7 @@ export const ResultsComponent = () => {
     currentPage,
     limit,
     totalResults,
-    jobs.length
+    jobs.length,
   );
 
   const handlePageChange = (event: CustomEvent<number>) => {
@@ -36,23 +33,22 @@ export const ResultsComponent = () => {
   return (
     <div className="job-list">
       <ul>
-        {jobs.length > 0 ? (
-          jobs.map((job) => <ResultCard key={job.id} job={job} />)
-        ) : (
-          <p>Inga jobb hittades</p>
-        )}
+        {" "}
+        {jobs.length > 0 ? jobs.map((job) => <ResultCard key={job.id} job={job} />) : <p>Inga jobb hittades</p>}{" "}
       </ul>
 
-      <DigiNavigationPagination
-        afTotalPages={totalPages}
-        afInitActivePage={1}
-        afCurrentResultStart={currentResultStart}
-        afCurrentResultEnd={currentResultEnd}
-        afTotalResults={totalResults}
-        afResultName="annonser"
-        className="pagination"
-        onAfOnPageChange={handlePageChange}
-      />
+      {jobs.length > 0 && (
+        <DigiNavigationPagination
+          afTotalPages={totalPages}
+          afInitActivePage={1}
+          afCurrentResultStart={currentResultStart}
+          afCurrentResultEnd={currentResultEnd}
+          afTotalResults={totalResults}
+          afResultName="annonser"
+          className="pagination"
+          onAfOnPageChange={handlePageChange}
+        />
+      )}
     </div>
   );
 };
