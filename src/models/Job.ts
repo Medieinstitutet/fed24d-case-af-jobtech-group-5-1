@@ -1,5 +1,5 @@
 export type JobResult = {
-  total: number;
+  total: { value: number };
   hits: Job[];
 };
 
@@ -41,7 +41,10 @@ export type Job = {
   };
   workplace_address: {
     region: string | null;
+    region_code: string | null;
     municipality: string | null;
+    municipality_code?: string;
+    municipality_concept_id?: string;
   };
   publication_date: string;
 };
