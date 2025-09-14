@@ -5,6 +5,10 @@ import "../styles/SelectedFilter.scss";
 export const SelectedFilters = () => {
   const { state, dispatch } = useJobContext();
 
+  const handleResetQuery = () => {
+    dispatch({ type: "SET_QUERY", payload: "" });
+  };
+
   const selectedRegionNames = state.region.map((code) => {
     const found = regions.find((r) => r.code === code);
     return found ? found.name : code;
@@ -17,6 +21,14 @@ export const SelectedFilters = () => {
 
   return (
     <div className="selected-filters">
+      {state.query && (
+        <div className="filter-item">
+          <strong>Search:</strong> {state.query}{" "}
+          <button className="reset-filter-btn" onClick={handleResetQuery}>
+            ×
+          </button>
+        </div>
+      )}
       {selectedRegionNames.length > 0 && (
         <div className="filter-group">
           <strong>{selectedRegionNames.length > 1 ? "Valda orter:" : "Vald ort:"}</strong>{" "}
