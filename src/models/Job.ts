@@ -15,6 +15,10 @@ export type Job = {
   employment_type: {
     label: string | null;
   };
+  salary_type: {
+    label: string | null;
+  };
+
   duration: {
     label: string | null;
   };
