@@ -1,5 +1,6 @@
 import { ResultsComponent } from "../components/ResultsComponent";
 import { SearchComponent } from "../components/SearchComponent";
+import { SelectedFilters } from "../components/SelectedFilter";
 import { useJobContext } from "../context/JobContext";
 
 export const ResultsPage = () => {
@@ -9,6 +10,7 @@ export const ResultsPage = () => {
   return (
     <>
       <SearchComponent />
+      <SelectedFilters />
       {hasSearch ? (
         <ResultsComponent />
       ) : (
