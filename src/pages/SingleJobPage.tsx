@@ -1,32 +1,12 @@
 import { LayoutBlockVariation, TypographyVariation } from "@digi/arbetsformedlingen";
 import { DigiLayoutBlock, DigiTypography } from "@digi/arbetsformedlingen-react";
 import { useJobContext } from "../context/JobContext";
-import { useParams } from "react-router";
-import { useEffect, useState } from "react";
-import type { Job } from "../models/Job";
-import { BASE_URL } from "../services/getJobs";
 
 export const SingleJobPage = () => {
   const { state } = useJobContext();
-  const { id } = useParams();
-const jobId = String(id);
-const [localJob, setLocalJob] = useState<Job | null>(null);
+  const job = state.selectedJob;
 
-const jobFromContext = state.jobs.find(j => String(j.id) === jobId);
-const job = jobFromContext || localJob;
-
-useEffect(() => {
-  if (!jobFromContext && !localJob) {
-    fetch(`${BASE_URL}id=${jobId}`)
-      .then(res => res.json())
-      .then(data => setLocalJob(data))
-      .catch(() => setLocalJob(null));
-  }
-}, [jobId, jobFromContext, localJob]);
-
-if (!job || !job.employer || !job.workplace_address) {
-  return <p>Laddar annons...</p>;
-}
+  if (!job) return <p>Laddar annons...</p>;
 
   return (
     <DigiLayoutBlock afVariation={LayoutBlockVariation.PRIMARY}>
@@ -42,7 +22,6 @@ if (!job || !job.employer || !job.workplace_address) {
         )}
         <blockquote>{job.description.text}</blockquote>
       </DigiTypography>
-    </DigiLayoutBlock> 
+    </DigiLayoutBlock>
   );
 };
- 
