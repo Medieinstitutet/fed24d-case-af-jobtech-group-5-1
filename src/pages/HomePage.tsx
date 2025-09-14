@@ -71,7 +71,7 @@ export const HomePage = () => {
         <h2>Är du på jakt efter drömjobbet inom "bla bla bla"?</h2>
         <h3>Då har du kommit till rätt ställe!</h3>
         <h4>Hos oss på Karriärkompassen kan du söka bland alla aktuella jobbannonser från norr till söder.</h4>
-        <a href="">Till annonserna ➝</a>
+        <a href="/result">Till annonserna ➝</a>
       </section>
 
       <section className="info-card-container">
