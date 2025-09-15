@@ -2,9 +2,11 @@ import {
   DigiHeader,
   DigiHeaderNavigation,
   DigiHeaderNavigationItem,
+  DigiHeaderNotification,
+  DigiIconBellFilled,
 } from "@digi/arbetsformedlingen-react";
 import compass from "../assets/compass.png";
-import "../index.css"; // Styling globalt
+import "../index.css";
 
 import { useEffect } from "react";
 import { NavLink, useLocation } from "react-router";
@@ -56,7 +58,15 @@ export const Header = () => {
     >
       <div slot="header-logo" aria-hidden="true" />
 
-      {/* Navigation / hamburgermeny */}
+      <div slot="header-content">
+        <DigiHeaderNotification afNotificationAmount={2}>
+          <a href="/">
+            <DigiIconBellFilled />
+            Notiser
+          </a>
+        </DigiHeaderNotification>
+      </div>
+
       <div slot="header-navigation">
         <DigiHeaderNavigation
           afCloseButtonText="Stäng"
