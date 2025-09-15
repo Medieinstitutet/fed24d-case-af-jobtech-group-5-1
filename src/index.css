@@ -17,18 +17,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --af-header-background-color: #926824; /* huvudfärgen på headern */
-  --digi--color--background--brand-1: #926824; /* extra stöd, vissa versioner använder denna */
-  --af-header-color: #ffffff;
-  --af-header-border-color: transparent;
-  --af-header-height: 64px;
 }
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
 /* Logotyp och systemnamn */
 .brand {
   display: inline-flex;
@@ -38,34 +27,77 @@
   color: var(--af-header-color);
 }
 
-.brand__img {
-  height: 40px;
+.brand-img {
+  height: 60px;
   width: auto;
 }
 
-.brand__name {
+.brand-name {
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: 3rem;
+  color: rgb(14, 194, 116);
 }
+digi-header.header {
+  --af-header-background-color: #83675A;
+  --digi--color--background--brand-1: #83675A;
+  --af-header-color: #ffffff;
+  --af-header-border-color: transparent;
+  --af-header-height: 50px;
 
-/* Systemnamn från DigiHeader (om inte dolt) */
-digi-header::part(system-name) {
-  font-size: 1rem;
+  background: #83675A !important;
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+
+ .brand-name {
+  font-size: 3rem;
   font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--af-header-color);
-}
+  white-space: nowrap;
+  color: rgb(44, 191, 24);
+ }
 
-/* Navigation */
-digi-header-navigation a {
+ .brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
   color: var(--af-header-color);
+ }
+ .brand-img {
+  height: 60px;
+  width: auto;
+ }
+}
+digi-header .digi-logo__img {
+  display: none !important;
+}
+digi-header-navigation a {
   text-decoration: none;
   padding: 0.5rem 1rem;
   display: block;
+  font-weight: 500;
+}
+digi-header-navigation a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
 }
 
-digi-header-navigation a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+digi-header::part(header-content) {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+digi-header-notification a {
+  color: var(--af-header-color);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+digi-header-avatar::part(button) {
+  color: var(--af-header-color);
 }
 body {
   margin: 0;
@@ -152,6 +184,3 @@ body {
     font-size: var(--digi--global--typography--font-size--xlarge, 1.5rem);
   }
 }
-
-
-

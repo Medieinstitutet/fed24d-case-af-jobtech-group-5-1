@@ -1,45 +1,56 @@
-import {
-  DigiHeader,
-  DigiHeaderNavigation,
-  DigiHeaderNavigationItem,
-} from "@digi/arbetsformedlingen-react";
+import { DigiHeader, DigiHeaderNavigation, DigiHeaderNavigationItem, DigiHeaderNotification, DigiIconBellFilled, DigiHeaderAvatar } from "@digi/arbetsformedlingen-react";
+import "../index.css";
 import compass from "../assets/compass.png";
-import "../index.css"; // Styling globalt
 
 export const Header = () => {
-  return (
-    <DigiHeader
-      className="header"
-      afSystemName="Karriärkompassen"
-      afHideSystemName={false}
-      afMenuButtonText="Meny"
-    >
-      {/* Logotyp + namn till vänster */}
-      <a slot="header-logo" aria-label="Startsida" href="/" className="brand">
-        <img src={compass} alt="Karriärkompassen" className="brand__img" />
-        <span className="brand__name"></span>
-      </a>
+    return (
+        <>
+            <DigiHeader className="header"
 
-      {/* Navigation / hamburgermeny */}
-      <div slot="header-navigation">
-        <DigiHeaderNavigation
-          afCloseButtonText="Stäng"
-          afCloseButtonAriaLabel="Stäng meny"
-          afNavAriaLabel="Huvudmeny"
-        >
-          <DigiHeaderNavigationItem afCurrentPage={true}>
-            <a href="/">Hem</a>
-          </DigiHeaderNavigationItem>
-          <DigiHeaderNavigationItem>
-            <a href="/search">Sök jobb</a>
-          </DigiHeaderNavigationItem>
-          <DigiHeaderNavigationItem>
-            <a href="/contact">Kontakt</a>
-          </DigiHeaderNavigationItem>
-        </DigiHeaderNavigation>
-      </div>
-    </DigiHeader>
-  );
+                afSystemName=""
+                afHideSystemName={true}
+                afMenuButtonText="Meny"
+            >
+                <div slot="header-logo" aria-label="" className="brand-logo">
+                    <img src={compass} alt="Karriärkompassen" className="brand-img" />
+                    <span className="brand-name">Karriärkompassen</span>
+                </div>
+                <div slot="header-content">
+                    <DigiHeaderNotification afNotificationAmount={8}>
+                        <a href="/">
+                            <DigiIconBellFilled></DigiIconBellFilled>
+                            Notiser
+                        </a>
+                    </DigiHeaderNotification>
+                    <DigiHeaderAvatar
+                        afSrc=""
+                        afAlt=""
+                        afName=""
+                        afSignature="KALIA"
+                        afIsLoggedIn={true}
+                        afHideSignature={true}
+                    ></DigiHeaderAvatar>
+                </div>
+                <div slot="header-navigation">
+                    <DigiHeaderNavigation
+                        afCloseButtonText="Stäng"
+                        afCloseButtonAriaLabel="Stäng meny"
+                        afNavAriaLabel="Huvudmeny"
+                    >
+                        <DigiHeaderNavigationItem afCurrentPage={true}>
+                            <a href="/">Mina bokningar</a>
+                        </DigiHeaderNavigationItem>
+                        <DigiHeaderNavigationItem>
+                            <a href="/">Grupper</a>
+                        </DigiHeaderNavigationItem>
+                        <DigiHeaderNavigationItem>
+                            <a href="/">Kontakt</a>
+                        </DigiHeaderNavigationItem>
+                    </DigiHeaderNavigation>
+                </div>
+            </DigiHeader>
+        </>
+    );
+
 };
-
 export default Header;
