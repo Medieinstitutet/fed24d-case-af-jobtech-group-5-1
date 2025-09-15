@@ -1,27 +1,27 @@
-import { ButtonSize, ButtonVariation, FormInputSearchVariation, FormInputType, InfoCardHeadingLevel, InfoCardSize, InfoCardType, InfoCardVariation, LinkVariation } from "@digi/arbetsformedlingen";
-import { DigiButton, DigiFormFilter, DigiFormInputSearch, DigiInfoCard, DigiLink, DigiNavigationPagination, DigiNavigationSidebarButton } from "@digi/arbetsformedlingen-react";
+import { InfoCardHeadingLevel, InfoCardSize, InfoCardType, InfoCardVariation } from "@digi/arbetsformedlingen";
+import {  DigiInfoCard } from "@digi/arbetsformedlingen-react";
 import "../styles/HomePage.scss";
 
 export const HomePage = () => {
   return (
     <>
-      <header>
+      {/* <header>
         <DigiNavigationSidebarButton 
           afText="Meny"
           className="menu">
         </DigiNavigationSidebarButton>
-      </header>
+      </header> */}
 
-      <DigiButton
+      {/* <DigiButton
         afSize={ButtonSize.MEDIUM}
         afVariation={ButtonVariation.PRIMARY}
         afFullWidth={false}
         className='my-class'
       >
         En knapp
-      </DigiButton>
+      </DigiButton> */}
 
-      <div className="HomePage-div">
+      {/* <div className="HomePage-div">
         <DigiFormInputSearch
           afLabel="Etikett"
           afVariation={FormInputSearchVariation.LARGE}
@@ -30,9 +30,9 @@ export const HomePage = () => {
           className="search"
         >
         </DigiFormInputSearch>
-      </div>
+      </div> */}
 
-      <DigiFormFilter
+      {/* <DigiFormFilter
         afFilterButtonText="Ort"
         afSubmitButtonText="Filtrera"
         afName="Välj"
@@ -46,10 +46,10 @@ export const HomePage = () => {
         afName="Välj"
         afListItems={[{"id":"omr1","label":"Område 1"},{"id":"omr2","label":"Område 2"},{"id":"omr3","label":"Område 3"}]}
         className="filter"
-      />
+      /> */}
 
 
-      <DigiNavigationPagination
+      {/* <DigiNavigationPagination
         afTotalPages={6}
         afInitActive-page={1}
         afCurrentResultStart={1}
@@ -58,14 +58,14 @@ export const HomePage = () => {
         afResultName="annonser"
         className="pagination"
       >
-      </DigiNavigationPagination>
+      </DigiNavigationPagination> */}
 
-      <DigiLink
+      {/* <DigiLink
         afHref="/"
         afVariation={LinkVariation.SMALL}
       >	 
         Jag är en länk
-      </DigiLink>
+      </DigiLink> */}
 
       <section className="top-section">
         <h2>Är du på jakt efter drömjobbet inom "bla bla bla"?</h2>
