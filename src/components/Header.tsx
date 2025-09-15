@@ -3,7 +3,6 @@ import {
   DigiHeaderNavigation,
   DigiHeaderNavigationItem,
   DigiHeaderNotification,
-  DigiHeaderAvatar,
   DigiIconBellFilled,
 } from "@digi/arbetsformedlingen-react";
 import compass from "../assets/compass.png";
