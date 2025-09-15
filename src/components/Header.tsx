@@ -2,8 +2,6 @@ import {
   DigiHeader,
   DigiHeaderNavigation,
   DigiHeaderNavigationItem,
-  DigiHeaderNotification,
-  DigiIconBellFilled,
 } from "@digi/arbetsformedlingen-react";
 import compass from "../assets/compass.png";
 import "../index.css";
@@ -57,15 +55,6 @@ export const Header = () => {
       afMenuButtonText="Meny"
     >
       <div slot="header-logo" aria-hidden="true" />
-
-      <div slot="header-content">
-        <DigiHeaderNotification afNotificationAmount={2}>
-          <a href="/">
-            <DigiIconBellFilled />
-            Notiser
-          </a>
-        </DigiHeaderNotification>
-      </div>
 
       <div slot="header-navigation">
         <DigiHeaderNavigation
