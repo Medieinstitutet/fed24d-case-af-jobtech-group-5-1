@@ -27,6 +27,7 @@
   --digi--color--background--secondary: #83675A;
 
   --digi--color--text--primary: #FAF0E6;
+  --digi--color--border--neutral-2: #E5734E;
 
   /* Menyknappen */
   --digi--color--text--secondary: #ffffff;
@@ -34,7 +35,7 @@
 
   /* Nav */
   --digi--color--background--neutral-8: #83675A;
-
+  --digi--color--border--neutral-4: #83675A;
 
 }
 
