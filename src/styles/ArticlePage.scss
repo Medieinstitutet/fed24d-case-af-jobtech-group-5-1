@@ -48,8 +48,9 @@
   text-decoration: underline;
 }
 .article-content div a:hover {
-  text-decoration: none;
-  background-color: rgb(40, 184, 18);
+  color: #83675a;
+  text-decoration: underline;
+  cursor: pointer;
 }
 @media (max-width: 900px) {
   .article-content {
