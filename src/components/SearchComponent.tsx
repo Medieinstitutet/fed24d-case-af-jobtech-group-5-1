@@ -4,7 +4,7 @@ import { FormInputSearchVariation, FormInputType } from "@digi/arbetsformedlinge
 import { DigiFormFilter, DigiFormInputSearch } from "@digi/arbetsformedlingen-react";
 
 export const SearchComponent = () => {
-  const { dispatch } = useJobContext();
+  const { dispatch, state } = useJobContext();
 
   return (
     <>
@@ -14,9 +14,10 @@ export const SearchComponent = () => {
           afVariation={FormInputSearchVariation.LARGE}
           afType={FormInputType.SEARCH}
           afButtonText="Sök"
-                  className="search"
+          className="search"
+          afValue={state.query}
           onAfOnSubmitSearch={(e: any) => {
-            dispatch({ type: "SET_QUERY", payload: e.detail }); 
+            dispatch({ type: "SET_QUERY", payload: e.detail });
           }}
         />
       </div>
@@ -26,8 +27,9 @@ export const SearchComponent = () => {
         afSubmitButtonText="Filtrera"
         afName="Välj län"
         afListItems={regions.map((r) => ({ id: r.code, label: r.name }))}
+        afCheckItems={state.region}
         className="filter"
-        onAfSubmitFilter={(e: any) => dispatch({ type: "SET_REGION", payload: e.detail.checked[0] })}
+        onAfSubmitFilter={(e: any) => dispatch({ type: "SET_REGION", payload: e.detail.checked || [] })}
       />
 
       <DigiFormFilter
@@ -35,8 +37,9 @@ export const SearchComponent = () => {
         afSubmitButtonText="Filtrera"
         afName="Välj yrkesgrupp"
         afListItems={occupation.map((o) => ({ id: o.code, label: o.name }))}
+        afCheckItems={state.occupation}
         className="filter"
-        onAfSubmitFilter={(e: any) => dispatch({ type: "SET_OCCUPATION", payload: e.detail.checked[0] })}
+        onAfSubmitFilter={(e: any) => dispatch({ type: "SET_OCCUPATION", payload: e.detail.checked || [] })}
       />
     </>
   );

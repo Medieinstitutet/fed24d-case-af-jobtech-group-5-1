@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
 }
+
 .oneObject {
   background-color: white;
   width: 800px;
@@ -10,8 +11,60 @@
   padding: 10px;
   color: black;
 
-  .sc-digi-link-s>a {
-    --digi--link--font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h3 {
+    cursor: pointer;
+    color: #1616b2;
     text-decoration: underline;
+    font-size: 1.1rem;
+    font-weight: 600;
+
+    &:hover {
+      color: #2323f5;
+    }
   }
-}  
+
+  h4 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .one-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .save-btn {
+      margin-left: auto;
+      justify-self: flex-end;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      color: #1616b2;
+      font-weight: 600;
+      cursor: pointer;
+
+      svg path {
+        transition: fill 0.2s;
+      }
+
+      &:hover svg path {
+        fill: red !important;
+      }
+    }
+
+    .digi-icon-heart {
+      width: 20px;
+      height: auto;
+      margin-right: 0.3rem;
+      fill: #1616b2;
+    }
+  }
+}

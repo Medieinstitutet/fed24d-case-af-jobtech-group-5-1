@@ -1,32 +1,13 @@
 import { LayoutBlockVariation, TypographyVariation } from "@digi/arbetsformedlingen";
 import { DigiLayoutBlock, DigiTypography } from "@digi/arbetsformedlingen-react";
 import { useJobContext } from "../context/JobContext";
-import { useParams } from "react-router";
-import { useEffect, useState } from "react";
-import type { Job } from "../models/Job";
-import { BASE_URL } from "../services/getJobs";
+import "../styles/SingleJobPage.scss";
 
 export const SingleJobPage = () => {
   const { state } = useJobContext();
-  const { id } = useParams();
-const jobId = String(id);
-const [localJob, setLocalJob] = useState<Job | null>(null);
+  const job = state.selectedJob;
 
-const jobFromContext = state.jobs.find(j => String(j.id) === jobId);
-const job = jobFromContext || localJob;
-
-useEffect(() => {
-  if (!jobFromContext && !localJob) {
-    fetch(`${BASE_URL}id=${jobId}`)
-      .then(res => res.json())
-      .then(data => setLocalJob(data))
-      .catch(() => setLocalJob(null));
-  }
-}, [jobId, jobFromContext, localJob]);
-
-if (!job || !job.employer || !job.workplace_address) {
-  return <p>Laddar annons...</p>;
-}
+  if (!job) return <p>Laddar annons...</p>;
 
   return (
     <DigiLayoutBlock afVariation={LayoutBlockVariation.PRIMARY}>
@@ -40,9 +21,42 @@ if (!job || !job.employer || !job.workplace_address) {
         {job.number_of_vacancies != null && job.number_of_vacancies > 1 && (
           <p>Antal tjänster: {job.number_of_vacancies}</p>
         )}
+        <h2>Om jobbet</h2>
         <blockquote>{job.description.text}</blockquote>
+        <h2>Om anställningen</h2>
+        {job.salary_type?.label && (
+          <>
+            <h3>Lön</h3>
+            <p>
+              <strong>Lönetyp: </strong>
+              {job.salary_type.label}
+            </p>
+          </>
+        )}
+        {job.employer.workplace && (
+          <>
+            <h3>Var ligger arbetsplatsen?</h3>
+            <p>
+              Arbetsplatsen ligger i kommunen <strong>{job.workplace_address.municipality}</strong> i{" "}
+              <strong>{job.workplace_address.region}</strong>
+            </p>
+          </>
+        )}
+        {job.employer.name && (
+          <>
+            <h2>Arbetsgivaren</h2>
+            <p>{job.employer.name}</p>
+            {job.employer.url && (
+              <a
+                href={job.employer.url.startsWith("http") ? job.employer.url : `https://${job.employer.url}`}
+                target="_blank"
+                rel="noopener noreferrer">
+                {job.employer.url}
+              </a>
+            )}
+          </>
+        )}
       </DigiTypography>
-    </DigiLayoutBlock> 
+    </DigiLayoutBlock>
   );
 };
- 

@@ -1,0 +1,16 @@
+.reset-filter-btn {
+  border: none;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  color: white;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 900;
+  margin-left: 0.3rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(146, 6, 6);
+  }
+}
