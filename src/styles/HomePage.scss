@@ -36,6 +36,10 @@
         font-weight: 500;
     }
 
+    a:hover {
+        color: #2DD1AE;
+    }
+
 }
 
 .info-card-container {
@@ -71,10 +75,6 @@
             color: #E5734E;
             font-size: 1.3rem;
             font-weight: 500;
-        }
-
-        a:hover {
-            color: #2DD1AE;
         }
     }
 }

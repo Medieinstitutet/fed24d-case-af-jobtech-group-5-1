@@ -33,9 +33,13 @@
   --digi--color--text--secondary: #ffffff;
   --digi--color--text--link: #ffffff;
 
+  --digi--color--text--link-hover: #2DD1AE;
+
   /* Nav */
   --digi--color--background--neutral-8: #83675A;
   --digi--color--border--neutral-4: #83675A;
+
+  --digi--typography--title-logo--font-size--mobile: 1rem;
 
 }
 
@@ -117,3 +121,25 @@
     font-size: var(--digi--global--typography--font-size--xlarge, 1.5rem);
   }
 }
+
+
+@media (min-width: 400px) {
+ .header {
+  --digi--typography--title-logo--font-size--mobile: 1.3rem;
+ }
+
+}
+
+@media (min-width: 600px) {
+  .header {
+   --digi--typography--title-logo--font-size--mobile: 1.5rem;
+  }
+ 
+ }
+
+ @media (min-width: 800px) {
+  .header {
+   --digi--typography--title-logo--font-size--mobile: 1.7rem;
+  }
+ 
+ }
