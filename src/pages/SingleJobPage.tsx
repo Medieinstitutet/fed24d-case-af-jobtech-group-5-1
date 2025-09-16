@@ -12,17 +12,20 @@ export const SingleJobPage = () => {
   return (
     <DigiLayoutBlock afVariation={LayoutBlockVariation.PRIMARY}>
       <DigiTypography afVariation={TypographyVariation.SMALL}>
-        <h1>{job.headline}</h1>
-        <h2>{job.employer.workplace}</h2>
-        <h3>Kommun: {job.workplace_address.municipality}</h3>
-        {job.working_hours_type?.label && <p>Omfattning: {job.working_hours_type.label}</p>}
-        {job.duration?.label && <p>Varaktighet: {job.duration.label}</p>}
-        {job.employment_type?.label && <p>Anställningsform: {job.employment_type.label}</p>}
-        {job.number_of_vacancies != null && job.number_of_vacancies > 1 && (
-          <p>Antal tjänster: {job.number_of_vacancies}</p>
-        )}
+        <div className="intro">
+          <h1>{job.headline}</h1>
+          <h2>{job.employer.workplace}</h2>
+          <h3>Kommun: {job.occupation.label}</h3>
+          <h3>Kommun: {job.workplace_address.municipality}</h3>
+          {job.working_hours_type?.label && <p>Omfattning: {job.working_hours_type.label}</p>}
+          {job.duration?.label && <p>Varaktighet: {job.duration.label}</p>}
+          {job.employment_type?.label && <p>Anställningsform: {job.employment_type.label}</p>}
+          {job.number_of_vacancies != null && job.number_of_vacancies > 1 && (
+            <p>Antal tjänster: {job.number_of_vacancies}</p>
+          )}
+        </div>
         <h2>Om jobbet</h2>
-        <blockquote>{job.description.text}</blockquote>
+        <blockquote dangerouslySetInnerHTML={{ __html: job.description.text_formatted }} />
         <h2>Om anställningen</h2>
         {job.salary_type?.label && (
           <>
@@ -33,7 +36,13 @@ export const SingleJobPage = () => {
             </p>
           </>
         )}
-        {job.employer.workplace && (
+        {job.description?.conditions && (
+          <>
+            <h3>Anställningsvillkor</h3>
+            <p>{job.description.conditions}</p>
+          </>
+        )}
+        {job.employer?.workplace && (
           <>
             <h3>Var ligger arbetsplatsen?</h3>
             <p>
@@ -42,7 +51,7 @@ export const SingleJobPage = () => {
             </p>
           </>
         )}
-        {job.employer.name && (
+        {job.employer?.name && (
           <>
             <h2>Arbetsgivaren</h2>
             <p>{job.employer.name}</p>

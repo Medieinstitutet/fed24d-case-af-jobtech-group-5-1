@@ -11,7 +11,9 @@ export type Job = {
   description: {
     text: string;
     text_formatted: string;
+    conditions: string | null;
   };
+
   employment_type: {
     label: string | null;
   };

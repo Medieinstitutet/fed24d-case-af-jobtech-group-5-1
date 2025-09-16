@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  .placeholder-text {
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-align: center;
+  }
+}
