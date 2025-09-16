@@ -77,6 +77,7 @@ export const HomePage = () => {
       </section>
 
       <section className="info-card-container">
+        <h4>Artiklar och tips</h4>
         <DigiInfoCard
           afHeading="5 cv-tips för att säkra drömjobbet"
           afHeadingLevel={InfoCardHeadingLevel.H2}
