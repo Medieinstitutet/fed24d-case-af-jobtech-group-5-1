@@ -17,9 +17,9 @@ function SwapAfLogo() {
     const swap = () => {
       host.querySelectorAll('digi-logo .digi-logo__img').forEach((el) => {
         const box = el as HTMLElement;
-        if (box.querySelector('.brand-img')) return; // redan bytt
-        box.innerHTML = '';                           // ta bort AF-SVG
-        const img = document.createElement('img');   // lägg in din
+        if (box.querySelector('.brand-img')) return; 
+        box.innerHTML = '';                         
+        const img = document.createElement('img');  
         img.src = compass;
         img.alt = 'Karriärkompassens logga som föreställer en kompass';
         img.className = 'brand-img';
@@ -29,7 +29,6 @@ function SwapAfLogo() {
       });
     };
 
-    // vänta in web components → byt → bevaka ev. omrenderingar
     requestAnimationFrame(() => requestAnimationFrame(swap));
     const mo = new MutationObserver(swap);
     mo.observe(host, { childList: true, subtree: true });

@@ -1,11 +1,12 @@
 import { Outlet } from "react-router";
 import { Footer } from "./FooterComponent";
 import Header from "./Header";
+import "../styles/Layout.scss";
 
 export const Layout = () => {
 
     return (
-        <>
+        <div className="page">
             <header>
                 <Header />
             </header>
@@ -17,6 +18,6 @@ export const Layout = () => {
             <footer>
                 <Footer />
             </footer>
-        </>
+        </div>
     );
 }

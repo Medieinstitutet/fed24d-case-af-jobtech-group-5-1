@@ -16,12 +16,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  /* --af-header-background-color: #926824; huvudfärgen på headern 
-  --digi--color--background--brand-1: #926824; extra stöd, vissa versioner använder denna 
-  --af-header-color: #ffffff;
-  --af-header-border-color: transparent;
-  --af-header-height: 64px; */
 }
 
 .header {
@@ -33,6 +27,7 @@
   --digi--color--background--secondary: #83675A;
 
   --digi--color--text--primary: #FAF0E6;
+  --digi--color--border--neutral-2: #E5734E;
 
   /* Menyknappen */
   --digi--color--text--secondary: #ffffff;
@@ -40,7 +35,7 @@
 
   /* Nav */
   --digi--color--background--neutral-8: #83675A;
-
+  --digi--color--border--neutral-4: #83675A;
 
 }
 
@@ -53,18 +48,6 @@
   --digi--color--background--neutral-6: #E5734E;
 }
 
-/* .menu {
-  --digi--color--text--secondary: #ffffff;
-  --digi--color--text--link: #ffffff;
-
-  --digi--color--text--secondary: #f0c9bc;
-  --digi--color--text--link-hover: #f0c9bc;
-
-  --digi--color--background--inverted-1: #f0c9bc;
-  --digi--color--background--inverted-6: #83675A;
-  --digi--color--background--primary: #f0c9bc;
-  --digi--color--background--inverted-5: #f0c9bc;
-} */
 
 .my-class {
   --digi--button--color--background--primary--default: #E5734E;
