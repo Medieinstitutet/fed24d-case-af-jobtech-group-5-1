@@ -1,14 +1,13 @@
 .article-content {
-  max-width: 80%;
+  max-width: 800px;
   margin: 2rem auto;
   padding: 1rem 2rem;
-  background-color: #2dd1ae;
+  background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   color: #333;
 }
-
 /* Tillbaka-länk */
 .article-content digi-link {
   display: inline-block;
@@ -16,82 +15,96 @@
   font-weight: 500;
   color: #83675a;
 }
-
 .article-content h1 {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
   color: #894a2d;
 }
-
 .article-content p em {
   display: block;
   font-style: italic;
   color: #666;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
-
 /* Innehåll från bodyHtml */
 .article-content div {
   line-height: 1.7;
   font-size: 1.1rem;
 }
-
 .article-content div h2 {
   font-size: 1.75rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
   color: #5c3b2e;
 }
-
 .article-content div ul,
 .article-content div ol {
   padding-left: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
 }
-
 .article-content div a {
   color: #894a2d;
   text-decoration: underline;
 }
-
 .article-content div a:hover {
   text-decoration: none;
   background-color: rgb(40, 184, 18);
 }
-@media (max-width: 600px) {
+@media (min-width: 900px) {
   .article-content {
-    padding: 1rem;
+    font-size: 1.2rem;
+    padding: 2rem;
+    max-width: 700px;
   }
 
   .article-content h1 {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 
-  .article-content div {
-    font-size: 1rem;
+  .article-content li {
+    margin-bottom: 1.2rem;
   }
 }
-@media (max-width: 300px) {
+
+
+@media (max-width: 900px) {
   .article-content {
-    padding: 0.5rem;
-    font-size: 0.9rem;
+    padding: 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 80%;
+    box-sizing: border-box;
   }
 
   .article-content h1 {
-    font-size: 1.5rem;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
   }
 
-  .brand-name {
-    font-size: 1.8rem;
+  .article-content p em {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
   }
 
-  .brand-img {
-    height: 40px;
+  .article-content ul,
+  .article-content ol {
+    padding-left: 1.2rem;
+    margin-bottom: 2rem;
   }
 
-  digi-header-navigation a {
-    padding: 0.3rem 0.5rem;
-    font-size: 0.9rem;
+  .article-content li {
+    margin-bottom: 1rem;
+  }
+
+  .article-content div h2 {
+    font-size: 1.6rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content digi-link {
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
   }
 }
