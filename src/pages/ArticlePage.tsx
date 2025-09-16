@@ -2,6 +2,7 @@ import { useParams } from "react-router";
 import { articles } from "../data/articles";
 import { DigiLink } from "@digi/arbetsformedlingen-react";
 import { LinkVariation } from "@digi/arbetsformedlingen";
+import "../styles/ArticlePage.scss";
 
 export const ArticlePage = () => {
   const { slug } = useParams<{ slug: string }>();

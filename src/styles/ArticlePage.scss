@@ -1,0 +1,97 @@
+.article-content {
+  max-width: 80%;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  background-color: #2dd1ae;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+/* Tillbaka-länk */
+.article-content digi-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  color: #83675a;
+}
+
+.article-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #894a2d;
+}
+
+.article-content p em {
+  display: block;
+  font-style: italic;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+/* Innehåll från bodyHtml */
+.article-content div {
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.article-content div h2 {
+  font-size: 1.75rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #5c3b2e;
+}
+
+.article-content div ul,
+.article-content div ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.article-content div a {
+  color: #894a2d;
+  text-decoration: underline;
+}
+
+.article-content div a:hover {
+  text-decoration: none;
+  background-color: rgb(40, 184, 18);
+}
+@media (max-width: 600px) {
+  .article-content {
+    padding: 1rem;
+  }
+
+  .article-content h1 {
+    font-size: 2rem;
+  }
+
+  .article-content div {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 300px) {
+  .article-content {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .article-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .brand-name {
+    font-size: 1.8rem;
+  }
+
+  .brand-img {
+    height: 40px;
+  }
+
+  digi-header-navigation a {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.9rem;
+  }
+}
