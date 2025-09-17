@@ -1,11 +1,12 @@
 .top-section {
-  background-color: #83675a;
-  color: #ffffff;
-  border-radius: 0 0 10px 10px;
-  padding-top: 3rem;
-  padding-bottom: 2rem;
-  width: 100vw;
-  margin-bottom: 2rem;
+    background-color: #83675A;
+    color: #ffffff;
+    border-radius: 0 0 10px 10px;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    width: 100vw;
+    margin-bottom: 2rem;
+    padding-left: 4rem;
 
   h2 {
     font-size: 1.3rem;
@@ -18,11 +19,16 @@
     padding-right: 0.5rem;
   }
 
-  h4 {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-bottom: 1rem;
-  }
+    h4 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .h4-info {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-bottom: 1rem;
+    }
 
   a {
     padding-left: 0.5rem;
@@ -62,11 +68,46 @@
       padding-left: 1rem;
     }
 
-    a {
-      padding-left: 1rem;
-      color: #e5734e;
-      font-size: 1.3rem;
-      font-weight: 500;
+        h3 {
+            font-size: 1.4rem;
+            padding-left: 1rem;
+        }
+    
+        h4 {
+            font-size: 1.2rem;
+            padding-left: 1rem;
+        }
+
+        .h4-info {
+            font-size: 1.2rem;
+            padding-left: 1rem;
+        }
+    
+        a {
+            padding-left: 1rem;
+            color: #E5734E;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
     }
-  }
+
+    .info-card-container {
+        width: 80%;
+
+        h4 {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+
+    .info-card-container {
+        width: 65%;
+
+        h4 {
+            font-size: 1.4rem;
+        }
+    }
+
 }
