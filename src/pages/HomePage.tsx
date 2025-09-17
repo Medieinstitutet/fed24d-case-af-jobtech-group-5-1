@@ -12,7 +12,7 @@ export const HomePage = () => {
         <h4 className="h4-info">Öppna annonsen, läs kraven och ta kontakt via de uppgifter som arbetsgivaren själv har lämnat.</h4>
       
         <DigiLinkInternal
-            afHref="/result"
+            afHref="#/result"
             afVariation={LinkVariation.LARGE}
             className="top-section-link">
             Till annonserna
@@ -25,7 +25,7 @@ export const HomePage = () => {
           afHeading="5 cv-tips för att säkra drömjobbet"
           afHeadingLevel={InfoCardHeadingLevel.H2}
           afType={InfoCardType.TIP}
-          afLinkHref="/artiklar/5-cv-tips"	
+          afLinkHref="#/artiklar/5-cv-tips"	
           afLinkText="Läs mer"	
           afVariation={InfoCardVariation.PRIMARY}	
           afSize={InfoCardSize.STANDARD}
@@ -41,7 +41,7 @@ export const HomePage = () => {
           afHeading="Omvandla dina svagheter till styrkor"
           afHeadingLevel={InfoCardHeadingLevel.H2}
           afType={InfoCardType.TIP}
-          afLinkHref="/artiklar/omvandla-svagheter-till-styrkor"	
+          afLinkHref="#/artiklar/omvandla-svagheter-till-styrkor"	
           afLinkText="Läs mer"	
           afVariation={InfoCardVariation.PRIMARY}	
           afSize={InfoCardSize.STANDARD}
@@ -57,7 +57,7 @@ export const HomePage = () => {
           afHeading="Så lyckas du på intervjun"
           afHeadingLevel={InfoCardHeadingLevel.H2}
           afType={InfoCardType.TIP}
-          afLinkHref="/artiklar/lyckas-på-intervju"	
+          afLinkHref="#/artiklar/lyckas-på-intervju"	
           afLinkText="Läs mer"	
           afVariation={InfoCardVariation.PRIMARY}	
           afSize={InfoCardSize.STANDARD}
@@ -73,7 +73,7 @@ export const HomePage = () => {
           afHeading="Löneförhandling - steg för steg"
           afHeadingLevel={InfoCardHeadingLevel.H2}
           afType={InfoCardType.TIP}
-          afLinkHref="/artiklar/löneförhandling"	
+          afLinkHref="#/artiklar/löneförhandling"	
           afLinkText="Läs mer"	
           afVariation={InfoCardVariation.PRIMARY}	
           afSize={InfoCardSize.STANDARD}
