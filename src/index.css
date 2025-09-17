@@ -7,8 +7,10 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* color: rgba(255, 255, 255, 0.87); */
+  color: #000;
+  /* background-color: #242424; */
+  background-color: #FAF0E6;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,56 +18,128 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  --digi--color--background--primary: #83675A;
+  --digi--color--background--secondary: #83675A;
+
+  --digi--color--text--primary: #FAF0E6;
+  --digi--color--border--neutral-2: #E5734E;
+
+  /* Menyknappen */
+  --digi--color--text--secondary: #ffffff;
+  --digi--color--text--link: #ffffff;
+
+  --digi--color--text--link-hover: #2DD1AE;
+
+  /* Nav */
+  --digi--color--background--neutral-8: #83675A;
+  --digi--color--border--neutral-4: #83675A;
+
+  --digi--typography--title-logo--font-size--mobile: 1rem;
+
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.digi-header-navigation-item-indicator--active.sc-digi-header-navigation-item {
+  --INDICATOR-COLOR: #E5734E;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.sc-digi-header-navigation-item-h {
+  --digi--header-navigation-item-indicator--active--color: #E5734E;
+  --digi--color--background--neutral-6: #E5734E;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+.my-class {
+  --digi--button--color--background--primary--default: #E5734E;
+  --digi--button--color--background--primary--hover: #ea9e84;  
+  --digi--button--color--background--primary--active: #c56849; 
+  --digi--button--color--text--primary--default: #FFFFFF;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.search {
+  --digi--color--background--inverted-1: #E5734E;
+  --digi--color--background--inverted-6: #ea9e84;
+  --digi--color--background--inverted-5: #c56849;
+  --digi--color--text--inverted: #FFFFFF; 
+}
+
+.filter {
+  --digi--color--background--primary: #FAF0E6;
+  --digi--color--background--secondary: #83675A;
+  --digi--color--background--inverted-1: #FAF0E6;
+  --digi--color--background--secondary--hover: #f0c9bc;
+  --digi--color--background--inverted-5: #f0c9bc;
+  
+  --digi--color--text--secondary: #83675A;
+  --digi--button--color--border--secondary--default: #E5734E;
+  --digi--color--border--secondary: #E5734E;
+
+  --digi--color--text--inverted: #83675A;
+  --digi--button--color--background--primary--default: #FAF0E6;
+  --digi--color--background--inverted-6: #f0c9bc;
+  
+}
+
+.pagination {
+  --digi--color--background--inverted-1: #E5734E;
+  --digi--color--background--inverted-6: #ea9e84;
+
+  --digi--color--text--secondary: #000;
+
+  --digi--color--background--inverted-5: #f0c9bc;
+
+  --digi--color--text--link: #e8baab; 
+  --digi--color--border--inverted-2: #e8baab;
+
+  --digi--color--border--secondary: #83675A;
+}
+
+.info-card {
+  --digi--color--background--neutral-5: #ffffff;
+  --digi--color--text--primary: #000;
+  --digi--color--text--link: #000;
+  --digi--link-internal--color--hover: #E5734E;
+}
+
+.footer {
+  --digi--color--background--inverted-1: #83675A;
+  --digi--color--border--inverted-3: #E5734E;
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--digi--gutter--medium, .5rem);
+    color: var(--digi--color--text--inverted);   
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+  .brand__img { height: 50px; width: auto; } 
+  .brand__name {
+    font-weight: 600;
+    font-size: var(--digi--global--typography--font-size--xlarge, 1.5rem);
   }
 }
+
+
+@media (min-width: 400px) {
+ .header {
+  --digi--typography--title-logo--font-size--mobile: 1.3rem;
+ }
+
+}
+
+@media (min-width: 600px) {
+  .header {
+   --digi--typography--title-logo--font-size--mobile: 1.5rem;
+  }
+ 
+ }
+
+ @media (min-width: 800px) {
+  .header {
+   --digi--typography--title-logo--font-size--mobile: 1.7rem;
+  }
+ 
+ }

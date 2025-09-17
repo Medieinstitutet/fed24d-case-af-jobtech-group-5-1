@@ -1,0 +1,107 @@
+.job-ad-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .back-btn {
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding-left: 1rem;
+
+    digi-icon-chevron-right {
+      transform: rotate(180deg);
+      margin-top: 5px;
+      font-size: 14px;
+    }
+  }
+
+  .job-ad {
+    margin: 1rem;
+    --digi--container-width--large: auto;
+    max-width: 1200px;
+    width: 100%;
+
+    .company-logo {
+      max-height: 100px;
+      margin-top: 1rem;
+    }
+
+    digi-typography {
+      --FONT-SIZE--HEADING-1: 2rem;
+      --LINE-HEIGHT--HEADING-1: 1.25em;
+      --FONT-SIZE--HEADING-2: 24px;
+      --FONT-WEIGHT--HEADING-2: 600;
+      --FONT-SIZE--HEADING-3: 20px;
+      --LINE-HEIGHT--HEADING-3: 1.25em;
+      --MARGIN--HEADING-2: 16px;
+      --MARGIN--HEADING-3: 0;
+    }
+
+    h1 {
+      margin-top: 1rem;
+      max-width: 750px;
+    }
+
+    .short-info {
+      margin: 1rem 0 1.5rem 0;
+      p {
+        margin: 0;
+      }
+    }
+
+    .qualifications {
+      width: 90%;
+      max-width: 700px;
+      background-color: #faf0e6;
+      padding: 1.2rem;
+      margin-bottom: 2rem;
+
+      h2 {
+        margin-bottom: 10px;
+      }
+    }
+
+    .main-content-job-ad {
+      blockquote {
+        --digi--paragraph-width--medium: 700px;
+        p {
+          margin: 0 0 15px;
+        }
+
+        h2 {
+          margin-bottom: 8px;
+        }
+
+        li {
+          margin-left: 2rem;
+        }
+      }
+    }
+
+    .about-employment {
+      margin-top: 2rem;
+      h2 {
+        margin: 12px 0 8px 0;
+      }
+
+      p {
+        margin-top: 0px;
+        margin-bottom: 12px;
+      }
+    }
+
+    .employer {
+      h2 {
+        margin: 1.5rem 0 0;
+      }
+    }
+
+    .digi-layout-block--primary {
+      padding: 2rem;
+    }
+  }
+}

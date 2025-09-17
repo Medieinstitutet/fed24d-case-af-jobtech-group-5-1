@@ -1,11 +1,14 @@
-import { DigiButton } from '@digi/arbetsformedlingen-react';
-import { ButtonVariation } from '@digi/arbetsformedlingen'; // observera att import av enums sker via @digi/arbetsformedlingen
+import { RouterProvider } from "react-router";
+import { router } from "./Router";
+import { JobProvider } from "./context/JobContext";
 
 export function App() {
   return (
-    <DigiButton className="my-class" afVariation={ButtonVariation.PRIMARY} onAfOnClick={() => console.log('Hallå världen!')}>
-      Skicka
-    </DigiButton>
+    <>
+      <JobProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </JobProvider>
+    </>
   );
 }
 export default App;
