@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useJobContext } from "../context/JobContext";
 import { ResultCard } from "./ResultCard";
-import { DigiNavigationPagination } from "@digi/arbetsformedlingen-react";
+import { DigiLoaderSpinner, DigiNavigationPagination } from "@digi/arbetsformedlingen-react";
 import { useJobs } from "../services/getJobs";
 import { getPaginationData } from "../utils/pagination";
+import { LoaderSpinnerSize } from "@digi/arbetsformedlingen";
 
 export const ResultsComponent = () => {
   const { state } = useJobContext();
@@ -34,7 +35,11 @@ export const ResultsComponent = () => {
     <div className="job-list">
       <ul>
         {" "}
-        {jobs.length > 0 ? jobs.map((job) => <ResultCard key={job.id} job={job} />) : <p>Inga jobb hittades</p>}{" "}
+        {jobs.length > 0 ? (
+          jobs.map((job) => <ResultCard key={job.id} job={job} />)
+        ) : (
+          <DigiLoaderSpinner afSize={LoaderSpinnerSize.MEDIUM} afText="Laddar annonser..."></DigiLoaderSpinner>
+        )}{" "}
       </ul>
 
       {jobs.length > 0 && (
