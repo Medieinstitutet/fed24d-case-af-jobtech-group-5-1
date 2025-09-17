@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useJobContext } from "../context/JobContext";
 import { ResultCard } from "./ResultCard";
 import { DigiLoaderSpinner, DigiNavigationPagination } from "@digi/arbetsformedlingen-react";
-import { useJobs } from "../services/getJobs";
+import { useJobs } from "../services/useJobs";
 import { getPaginationData } from "../utils/pagination";
 import { LoaderSpinnerSize } from "@digi/arbetsformedlingen";
 
