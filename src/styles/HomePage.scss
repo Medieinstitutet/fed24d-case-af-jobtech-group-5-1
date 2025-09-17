@@ -4,7 +4,6 @@
     border-radius: 0 0 10px 10px;
     padding-top: 3rem;
     padding-bottom: 2rem;
-    width: 100vw;
     margin-bottom: 2rem;
     padding-left: 4rem;
 
@@ -30,15 +29,13 @@
         padding-bottom: 1rem;
     }
 
-  a {
+  .top-section-link {
     padding-left: 0.5rem;
-    color: #e5734e;
     font-size: 1.2rem;
     font-weight: 500;
-  }
 
-  a:hover {
-    color: #2dd1ae;
+    --digi--color--text--link: #e5734e;
+    --digi--color--text--link-visited: #e5734e;
   }
 }
 
@@ -49,6 +46,11 @@
   width: 90%;
   margin-inline: auto;
   padding-bottom: 2rem;
+
+  .info-card {
+    --digi--color--text--link: #e5734e;
+    --digi--color--text--link-visited: #e5734e;
+  }
 }
 
 @media (min-width: 768px) {
