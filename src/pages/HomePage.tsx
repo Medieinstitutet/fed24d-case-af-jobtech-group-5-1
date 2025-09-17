@@ -1,79 +1,22 @@
-import { InfoCardHeadingLevel, InfoCardSize, InfoCardType, InfoCardVariation } from "@digi/arbetsformedlingen";
-import {  DigiInfoCard } from "@digi/arbetsformedlingen-react";
+import { InfoCardHeadingLevel, InfoCardSize, InfoCardType, InfoCardVariation, LinkVariation } from "@digi/arbetsformedlingen";
+import {  DigiInfoCard, DigiLinkInternal } from "@digi/arbetsformedlingen-react";
 import "../styles/HomePage.scss";
 
 export const HomePage = () => {
   return (
     <>
-      {/* <header>
-        <DigiNavigationSidebarButton 
-          afText="Meny"
-          className="menu">
-        </DigiNavigationSidebarButton>
-      </header> */}
-
-      {/* <DigiButton
-        afSize={ButtonSize.MEDIUM}
-        afVariation={ButtonVariation.PRIMARY}
-        afFullWidth={false}
-        className='my-class'
-      >
-        En knapp
-      </DigiButton> */}
-
-      {/* <div className="HomePage-div">
-        <DigiFormInputSearch
-          afLabel="Etikett"
-          afVariation={FormInputSearchVariation.LARGE}
-          afType={FormInputType.SEARCH}	
-          afButtonText="Sök"
-          className="search"
-        >
-        </DigiFormInputSearch>
-      </div> */}
-
-      {/* <DigiFormFilter
-        afFilterButtonText="Ort"
-        afSubmitButtonText="Filtrera"
-        afName="Välj"
-        afListItems={[{"id":"omr1","label":"Område 1"},{"id":"omr2","label":"Område 2"},{"id":"omr3","label":"Område 3"}]}
-        className="filter"
-      />
-
-      <DigiFormFilter
-        afFilterButtonText="Yrke"
-        afSubmitButtonText="Filtrera"
-        afName="Välj"
-        afListItems={[{"id":"omr1","label":"Område 1"},{"id":"omr2","label":"Område 2"},{"id":"omr3","label":"Område 3"}]}
-        className="filter"
-      /> */}
-
-
-      {/* <DigiNavigationPagination
-        afTotalPages={6}
-        afInitActive-page={1}
-        afCurrentResultStart={1}
-        afCurrentResultEnd={25}
-        afTotalResults={10}
-        afResultName="annonser"
-        className="pagination"
-      >
-      </DigiNavigationPagination> */}
-
-      {/* <DigiLink
-        afHref="/"
-        afVariation={LinkVariation.SMALL}
-      >	 
-        Jag är en länk
-      </DigiLink> */}
-
       <section className="top-section">
         <h2>Är du på jakt efter drömjobbet?</h2>
         <h3>Då har du kommit till rätt ställe!</h3>
         <h4>Vi på Karriärkompassen samlar aktuella jobbannonser från hela landet och gör det enkelt att hitta rätt.</h4>
         <h4 className="h4-info">Öppna annonsen, läs kraven och ta kontakt via de uppgifter som arbetsgivaren själv har lämnat.</h4>
       
-        <a href="/result">Till annonserna ➝</a>
+        <DigiLinkInternal
+            afHref="/result"
+            afVariation={LinkVariation.LARGE}
+            className="top-section-link">
+            Till annonserna
+          </DigiLinkInternal>
       </section>
 
       <section className="info-card-container">
