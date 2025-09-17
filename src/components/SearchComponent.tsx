@@ -9,7 +9,7 @@ export const SearchComponent = () => {
 
   return (
     <>
-      <div className="HomePage-div">
+      <div className="search-bar">
         <DigiFormInputSearch
           afLabel="Sök jobb"
           afVariation={FormInputSearchVariation.LARGE}

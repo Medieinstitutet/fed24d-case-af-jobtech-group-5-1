@@ -1,13 +1,19 @@
-.wrapper {
+.results-page-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 1rem;
+  margin: 2rem;
 
-  .placeholder-text {
-    font-size: 1.25rem;
-    font-weight: 800;
-    text-align: center;
+  .forms {
+    gap: 10px;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 860px;
+  }
+
+  p {
+    --digi--typography--preamble--font-size--desktop: 1.25rem;
+    --digi--paragraph-width--medium: 100%;
   }
 }

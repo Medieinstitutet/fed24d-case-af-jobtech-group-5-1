@@ -1,3 +1,4 @@
+import { DigiTypographyPreamble } from "@digi/arbetsformedlingen-react";
 import { ResultsComponent } from "../components/ResultsComponent";
 import { SearchComponent } from "../components/SearchComponent";
 import { SelectedFilters } from "../components/SelectedFilter";
@@ -10,13 +11,15 @@ export const ResultsPage = () => {
 
   return (
     <>
-      <div className="wrapper">
+      <div className="results-page-container">
         <SearchComponent />
         <SelectedFilters />
         {hasSearch ? (
           <ResultsComponent />
         ) : (
-          <p className="placeholder-text">Gör en sökning eller filtrera i listorna för att hitta ditt nästa jobb!</p>
+          <DigiTypographyPreamble className="no-search">
+            Gör en sökning eller filtrera i listorna för att hitta ditt nästa jobb!
+          </DigiTypographyPreamble>
         )}
       </div>
     </>

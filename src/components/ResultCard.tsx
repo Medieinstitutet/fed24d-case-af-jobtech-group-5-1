@@ -23,7 +23,7 @@ export const ResultCard = ({ job }: { job: Job }) => {
 
   return (
     <div className="job-list">
-      <li className="oneObject" onClick={handleClick}>
+      <li className="one-object" onClick={handleClick}>
         <h3>{job.headline}</h3>
         <h4>{`${job.employer?.workplace} – ${job.workplace_address?.municipality}`}</h4>
         <p>{job.occupation?.label}</p>

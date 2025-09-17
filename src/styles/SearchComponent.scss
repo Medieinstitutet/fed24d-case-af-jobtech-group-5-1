@@ -1,5 +1,9 @@
-.forms {
+.search-bar {
   display: flex;
-  flex-direction: row;
-  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 860px;
 }
