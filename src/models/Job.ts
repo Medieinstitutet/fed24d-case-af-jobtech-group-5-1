@@ -11,7 +11,9 @@ export type Job = {
   description: {
     text: string;
     text_formatted: string;
+    conditions: string | null;
   };
+
   employment_type: {
     label: string | null;
   };
@@ -50,5 +52,15 @@ export type Job = {
     municipality_code?: string;
     municipality_concept_id?: string;
   };
+
+  must_have: MustHaveFromAPI;
+
   publication_date: string;
+};
+
+export type MustHaveFromAPI = {
+  languages: { label: string }[];
+  work_experiences: { label: string }[];
+  education: { label: string }[];
+  education_level: { label: string }[];
 };

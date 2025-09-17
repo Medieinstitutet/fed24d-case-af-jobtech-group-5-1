@@ -3,68 +3,72 @@
   padding: 0;
 }
 
-.oneObject {
-  background-color: white;
-  width: 800px;
-  margin: 1rem;
-  list-style-type: none;
-  padding: 10px;
-  color: black;
-
+.job-list {
+  width: 100%;
+  max-width: 900px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 
-  h3 {
-    cursor: pointer;
-    color: #1616b2;
-    text-decoration: underline;
-    font-size: 1.1rem;
-    font-weight: 600;
+  .one-object {
+    background-color: white;
+    margin: 8px;
+    list-style-type: none;
+    padding: 1rem;
+    color: black;
+    border-radius: 5px;
 
-    &:hover {
-      color: #2323f5;
+    h3 {
+      cursor: pointer;
+      color: #1616b2;
+      text-decoration: underline;
+      font-size: 1.1rem;
+      font-weight: 600;
+
+      &:hover {
+        color: #2323f5;
+      }
     }
-  }
 
-  h4 {
-    font-size: 16px;
-    font-weight: 600;
-  }
+    h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 12px 0;
+    }
 
-  p {
-    font-size: 0.9rem;
-  }
+    p {
+      font-size: 0.9rem;
+    }
 
-  .one-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    .save-btn {
-      margin-left: auto;
-      justify-self: flex-end;
+    .one-row {
       display: flex;
       flex-direction: row;
-      align-items: center;
-      color: #1616b2;
-      font-weight: 600;
-      cursor: pointer;
+      justify-content: space-between;
 
-      svg path {
-        transition: fill 0.2s;
+      .save-btn {
+        margin-left: auto;
+        justify-self: flex-end;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        color: #1616b2;
+        font-weight: 600;
+        cursor: pointer;
+
+        svg path {
+          transition: fill 0.2s;
+        }
+
+        &:hover svg path {
+          fill: red !important;
+        }
       }
 
-      &:hover svg path {
-        fill: red !important;
+      .digi-icon-heart {
+        width: 20px;
+        height: auto;
+        margin-right: 0.3rem;
+        fill: #1616b2;
       }
-    }
-
-    .digi-icon-heart {
-      width: 20px;
-      height: auto;
-      margin-right: 0.3rem;
-      fill: #1616b2;
     }
   }
 }

@@ -68,13 +68,16 @@ export const HomePage = () => {
       </DigiLink> */}
 
       <section className="top-section">
-        <h2>Är du på jakt efter drömjobbet inom "bla bla bla"?</h2>
+        <h2>Är du på jakt efter drömjobbet?</h2>
         <h3>Då har du kommit till rätt ställe!</h3>
-        <h4>Hos oss på Karriärkompassen kan du söka bland alla aktuella jobbannonser från norr till söder.</h4>
+        <h4>Vi på Karriärkompassen samlar aktuella jobbannonser från hela landet och gör det enkelt att hitta rätt.</h4>
+        <h4 className="h4-info">Öppna annonsen, läs kraven och ta kontakt via de uppgifter som arbetsgivaren själv har lämnat.</h4>
+      
         <a href="/result">Till annonserna ➝</a>
       </section>
 
       <section className="info-card-container">
+        <h4>Artiklar och tips</h4>
         <DigiInfoCard
           afHeading="5 cv-tips för att säkra drömjobbet"
           afHeadingLevel={InfoCardHeadingLevel.H2}
