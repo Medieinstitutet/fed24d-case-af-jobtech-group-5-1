@@ -12,13 +12,14 @@ export const ArticlePage = () => {
 
   return (
     <article className="article-content">
-        <div>
-        <DigiLink
-            afHref="/"
-            afVariation={LinkVariation.SMALL}
-        >	 
-            ← Tillbaka
-        </DigiLink>
+        <div className="back-btn">
+          <DigiLink
+            onAfOnClick={() => {
+              window.history.back();
+            }}
+            afVariation={LinkVariation.LARGE}>
+            Tillbaka
+          </DigiLink>
         </div>
 
       <h1>{article.title}</h1>
