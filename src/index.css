@@ -45,6 +45,7 @@
 
 .digi-header-navigation-item-indicator--active.sc-digi-header-navigation-item {
   --INDICATOR-COLOR: #E5734E;
+  --digi--header-navigation-item-indicator--active--color: #E5734E;
 }
 
 .sc-digi-header-navigation-item-h {
