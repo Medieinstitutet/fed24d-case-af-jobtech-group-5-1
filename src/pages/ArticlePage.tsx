@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router";
 import { articles } from "../data/articles";
 import { DigiLinkInternal } from "@digi/arbetsformedlingen-react";
 import { LinkVariation } from "@digi/arbetsformedlingen";
