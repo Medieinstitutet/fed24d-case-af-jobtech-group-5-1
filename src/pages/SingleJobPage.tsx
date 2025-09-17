@@ -24,6 +24,11 @@ export const SingleJobPage = () => {
     mappedMustHave.education ||
     mappedMustHave.education_level;
 
+  const formatText = (text: string) => {
+    if (!text) return "";
+    return `<p>${text.replace(/\n\n+/g, "</p><p>").replace(/\n/g, "<br/>")}</p>`;
+  };
+
   return (
     <>
       <div className="job-ad-container">
@@ -83,7 +88,7 @@ export const SingleJobPage = () => {
             )}
             <div className="main-content-job-ad">
               <h2>Om jobbet</h2>
-              <blockquote dangerouslySetInnerHTML={{ __html: job.description.text_formatted }} />
+              <blockquote dangerouslySetInnerHTML={{ __html: formatText(job.description.text_formatted) }} />
             </div>
             <div className="about-employment">
               <h2>Om anställningen</h2>
