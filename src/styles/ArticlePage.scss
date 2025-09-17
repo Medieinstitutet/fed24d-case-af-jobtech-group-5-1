@@ -17,11 +17,13 @@
   align-items: flex-start;
   box-sizing: border-box;
   padding-left: 1rem;
-}
-digi-icon-chevron-right {
-  transform: rotate(180deg);
-  margin-top: 5px;
-   font-size: 14px;
+
+   digi-icon-chevron-right {
+      transform: rotate(180deg);
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
 }
 .article-content h1 {
   font-size: 2.5rem;
