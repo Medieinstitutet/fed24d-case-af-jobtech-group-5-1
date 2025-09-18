@@ -7,7 +7,7 @@ import compass from "../assets/compass.png";
 import "../index.css";
 
 import { useEffect } from "react";
-import { NavLink, useLocation } from "react-router";
+import { NavLink, useLocation, Link } from "react-router";
 
 function SwapAfLogo() {
   useEffect(() => {
@@ -68,6 +68,7 @@ export const Header = () => {
           <DigiHeaderNavigationItem afCurrentPage={isResult}>
             <NavLink to="/result">Sök jobb</NavLink>
           </DigiHeaderNavigationItem>
+          <Link to="/sparade-jobb" className="spara-länk">Sparade</Link>
         </DigiHeaderNavigation>
       </div>
     </DigiHeader>

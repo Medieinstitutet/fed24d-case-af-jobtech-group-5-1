@@ -58,7 +58,7 @@
           transition: fill 0.2s;
         }
 
-        &:hover svg path {
+        .digi-icon-heart.active {
           fill: red !important;
         }
       }

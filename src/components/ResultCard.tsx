@@ -1,25 +1,52 @@
-import { useJobContext } from "../context/JobContext";
 import { useNavigate } from "react-router";
 import type { Job } from "../models/Job";
 import { formatDateTime } from "../utils/formatDateTime";
 import "../styles/ResultCard.scss";
 import { useEffect, useState } from "react";
+import { useJobContext } from "../context/JobContext";
 
 export const ResultCard = ({ job }: { job: Job }) => {
   const { dispatch, state } = useJobContext();
   const navigate = useNavigate();
   const [navigateReady, setNavigateReady] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
+
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem("savedJobs") || "[]");
+    setIsSaved(saved.includes(job.id));
+  }, [job.id]);
 
   useEffect(() => {
     if (navigateReady && state.selectedJob?.id === job.id) {
       navigate(`/result/${job.id}`);
     }
-  }, [navigateReady, state.selectedJob]);
+  }, [navigateReady, state.selectedJob, job.id, navigate]);
 
   const handleClick = () => {
     dispatch({ type: "SET_SELECTED_JOB", payload: job });
     setNavigateReady(true);
   };
+
+const handleSaveClick = (e: React.MouseEvent) => {
+  e.stopPropagation(); // förhindrar att hela kortet klickas
+
+  const saved = JSON.parse(localStorage.getItem("savedJobs") || "[]");
+
+  let updated;
+
+  if (saved.includes(job.id)) {
+    // Jobbet finns redan → ta bort det
+    updated = saved.filter((id: string) => id !== job.id);
+    setIsSaved(false);
+  } else {
+    // Jobbet finns inte → lägg till det
+    updated = [...saved, job.id];
+    setIsSaved(true);
+  }
+
+  localStorage.setItem("savedJobs", JSON.stringify(updated));
+};
+
 
   return (
     <div className="job-list">
@@ -29,9 +56,9 @@ export const ResultCard = ({ job }: { job: Job }) => {
         <p>{job.occupation?.label}</p>
         <div className="one-row">
           <p>{formatDateTime(job.publication_date)}</p>
-          <div className="save-btn">
+          <div className="save-btn" onClick={handleSaveClick}>
             <svg
-              className="digi-icon-heart sc-digi-icon-heart"
+              className={`digi-icon-heart sc-digi-icon-heart ${isSaved ? "active" : ""}`}
               viewBox="0 0 48 48"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true">
@@ -39,7 +66,7 @@ export const ResultCard = ({ job }: { job: Job }) => {
                 className="digi-icon-heart__shape sc-digi-icon-heart"
                 d="M21.2090909,43.4703308 L6.22727273,28.9641289 C5.58181818,28.372405 0,23.0917172 0,16.5199953 C0,8.388274 5.16363636,3 13.8181818,3 C17.5818182,3 21.1454545,5.04413722 24,7.46482604 C26.8454545,5.04413722 30.4181818,3 34.1818182,3 C42.5181818,3 48,8.06551549 48,16.5199953 C48,21.1820627 45.1090909,25.7993024 41.8090909,28.9551634 L41.7727273,28.9910255 L26.7909091,43.4703308 C25.2437253,44.9765564 22.7562747,44.9765564 21.2090909,43.4703308 Z M9.26363636,25.9473339 L24,40.2210526 L38.7090909,25.9921635 C41.1909091,23.5713695 43.6363636,20.0477693 43.6363636,16.5958964 C43.6363636,10.5977068 40.1636364,7.37894737 34.1818182,7.37894737 C29.8909091,7.37894737 25.7454545,11.7991379 24,13.5116255 C22.4545455,11.9874219 18.1818182,7.37894737 13.8181818,7.37894737 C7.82727273,7.37894737 4.36363636,10.5977068 4.36363636,16.5958964 C4.36363636,19.9401785 6.79090909,23.6699944 9.26363636,25.9473339 Z"></path>
             </svg>
-            <p>Spara</p>
+            <p>{isSaved ? "Sparad" : "Spara"}</p>
           </div>
         </div>
       </li>

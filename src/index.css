@@ -52,6 +52,18 @@
   --digi--header-navigation-item-indicator--active--color: #E5734E;
   --digi--color--background--neutral-6: #E5734E;
 }
+.spara-länk {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 1rem 1rem;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: #16bb87;
+  }
+}
+
 
 
 .my-class {

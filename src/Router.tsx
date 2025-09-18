@@ -5,6 +5,7 @@ import { ResultsPage } from "./pages/ResultsPage";
 import { SingleJobPage } from "./pages/SingleJobPage";
 import { ArticlePage } from "./pages/ArticlePage";
 import NotFoundPage from "./pages/NotFoundPage";
+import { SavedJobsPage } from "./pages/SavedJobsPage";
 
 export const router = createHashRouter([
     {
@@ -31,6 +32,10 @@ export const router = createHashRouter([
                 path: "*", 
                 element: <NotFoundPage /> 
             },
+            {
+                path: "sparade-jobb",
+                element: <SavedJobsPage />,
+            }
         ],
     },
 ]);
