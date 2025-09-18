@@ -1,0 +1,62 @@
+.not-found {
+    --digi--color--background--primary: #faf0e6;
+
+    .notFound-card {
+        display: grid;
+        gap: clamp(12px, 2.5vw, 24px);
+        grid-template-columns: 1fr;     
+        align-items: center;
+    
+        .notFound-text {
+            display: grid;
+            gap: 12px;
+            text-align: left;
+        
+            h1 { 
+                padding-top: 25px; 
+                margin: 0 0 .5rem; 
+                font-weight: 800; 
+            }
+
+            p  { 
+                font-size: 1.2rem; 
+                margin: 0 0 1rem; 
+                line-height: 1.6; 
+            }
+
+            .notFound-btn {
+                margin-top: 1rem;
+                width: 100%;
+                max-width: 1200px;
+                display: flex;
+                align-items: flex-start;
+                box-sizing: border-box;
+                padding-left: 1rem;
+            
+                digi-icon-chevron-right {
+                    transform: rotate(180deg);
+                    margin-top: 5px;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .notFound-logo {
+            height: clamp(140px, 22vw, 300px);
+            width: auto;
+            object-fit: contain;
+            justify-self: center; 
+        }
+        
+    }
+
+    @media (min-width: 768px) {
+        .notFound-card {
+          grid-template-columns: 1fr auto; 
+        }
+        .notFound-logo {
+            margin-top: 70px;
+            margin-bottom: 70px;
+        }
+    }
+}
