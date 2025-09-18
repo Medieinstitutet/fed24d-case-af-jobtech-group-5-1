@@ -4,6 +4,7 @@ import { HomePage } from "./pages/HomePage";
 import { ResultsPage } from "./pages/ResultsPage";
 import { SingleJobPage } from "./pages/SingleJobPage";
 import { ArticlePage } from "./pages/ArticlePage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 export const router = createHashRouter([
     {
@@ -25,6 +26,10 @@ export const router = createHashRouter([
             {
                 path: "artiklar/:slug",
                 element: <ArticlePage />,
+            },
+            { 
+                path: "*", 
+                element: <NotFoundPage /> 
             },
         ],
     },
