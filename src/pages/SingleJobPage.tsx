@@ -29,20 +29,29 @@ export const SingleJobPage = () => {
     return `<p>${text.replace(/\n\n+/g, "</p><p>").replace(/\n/g, "<br/>")}</p>`;
   };
 
+  const normalizeUrl = (url?: string | null): string | undefined => {
+    if (!url) return undefined;
+    const u = url.trim();
+    if(!u) return undefined;
+    return /^https?:\/\//i.test(u) ? u : `https://${u}`; 
+  };
+
+  const applyHref = normalizeUrl(job.application_details?.url ?? job.employer?.url);
+
   return (
-    <>
-      <div className="job-ad-container">
-        <div className="back-btn">
-          <DigiLinkInternal
-            onAfOnClick={() => {
-              navigate(-1);
-            }}
-            afVariation={LinkVariation.LARGE}>
-            Sökresultat
-          </DigiLinkInternal>
-        </div>
-        <DigiLayoutBlock afVariation={LayoutBlockVariation.PRIMARY} className="job-ad">
-          <DigiTypography afVariation={TypographyVariation.SMALL}>
+    <div className="job-ad-container">
+      <div className="back-btn">
+        <DigiLinkInternal
+          onAfOnClick={() => navigate(-1)}
+          afVariation={LinkVariation.LARGE}
+        >
+          Sökresultat
+        </DigiLinkInternal>
+      </div>
+      <DigiLayoutBlock afVariation={LayoutBlockVariation.PRIMARY} className="job-ad">
+        <div className="job-ad-grid">
+          {/* Vänster */}
+          <DigiTypography afVariation={TypographyVariation.SMALL} className="job-main">
             {job.logo_url && <img src={job.logo_url} alt="Företagslogotyp" className="company-logo" />}
             <h1>{job.headline}</h1>
             <h2>{job.employer.workplace}</h2>
@@ -126,19 +135,39 @@ export const SingleJobPage = () => {
               )}
             </div>
             {job.employer.url && (
-              <>
-                <DigiLinkExternal
-                  afHref={job.employer.url.startsWith("http") ? job.employer.url : `https://${job.employer.url}`}
-                  rel="noopener noreferrer"
-                  afTarget="_blank"
-                  afVariation={LinkVariation.SMALL}>
-                  {job.employer.url}
-                </DigiLinkExternal>
-              </>
+              <DigiLinkExternal
+                afHref={job.employer.url.startsWith("http") ? job.employer.url : `https://${job.employer.url}`}
+                rel="noopener noreferrer"
+                afTarget="_blank"
+                afVariation={LinkVariation.SMALL}
+              >
+                {job.employer.url}
+              </DigiLinkExternal>
             )}
           </DigiTypography>
-        </DigiLayoutBlock>
-      </div>
-    </>
+
+          {/* Höger */}
+          <aside className="job-aside">
+            <DigiLayoutBlock afVariation={LayoutBlockVariation.SECONDARY} className="apply-card">
+              <DigiTypography>
+                <h2>Sök jobbet</h2>
+                <p>Ansök via arbetsgivarens webbplats.</p>
+                {job.employer?.url && (
+                  <DigiLinkExternal
+                    afHref={applyHref}
+                    afTarget="_blank"
+                    rel="noopener noreferrer"
+                    afVariation={LinkVariation.LARGE}
+                    className="apply-btn"
+                  >
+                    Ansök här
+                  </DigiLinkExternal>
+                )}
+              </DigiTypography>
+            </DigiLayoutBlock>
+          </aside>
+        </div>
+      </DigiLayoutBlock>
+    </div>
   );
 };
