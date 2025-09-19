@@ -32,6 +32,9 @@ export type Job = {
     name: string | null;
     workplace: string | null;
   };
+  application_details: {
+    url: string | null,
+  };
   occupation: {
     label: string | null;
   };
