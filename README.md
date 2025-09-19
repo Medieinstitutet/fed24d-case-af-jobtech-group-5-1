@@ -26,6 +26,10 @@ As per assignment requirements we use components from Arbetsförmedlingens Desig
 ## 🎥 Demo 
 [Click here to view the demo](https://medieinstitutet.github.io/fed24d-case-af-jobtech-group-5-1/)
 
+## Lighthouse
+
+![Lighthouse](src/assets/lighthouse.jpg)
+
 ## 📸 Screenshots 
 
 **Start page**
