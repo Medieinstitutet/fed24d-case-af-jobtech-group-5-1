@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-.job-list {
+.job-card {
   width: 100%;
   max-width: 900px;
   display: flex;
@@ -53,6 +53,8 @@
         color: #1616b2;
         font-weight: 600;
         cursor: pointer;
+        border: none;
+        background-color: white;
 
         svg path {
           transition: fill 0.2s;

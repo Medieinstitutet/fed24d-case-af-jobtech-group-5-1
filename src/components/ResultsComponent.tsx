@@ -32,7 +32,7 @@ export const ResultsComponent = () => {
   };
 
   return (
-    <div className="job-list">
+    <div className="job-card">
       <ul>
         {" "}
         {jobs.length > 0 ? (
