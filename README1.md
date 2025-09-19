@@ -1,3 +1,4 @@
+
 # Group Project – Build your own “Platsbanken” (job board) for a scenario of your choice using Arbetsförmedlingen’s open data..
 
 ## 📖 Project Overview
@@ -28,13 +29,13 @@ As per assignment requirements we use components from Arbetsförmedlingens Desig
 ## 📸 Screenshots 
 
 **Start page**
-![Start page]()
+![Start page](src/assets/startPage.png)
 
 **Result page**
-![Result page]()
+![Result page](src/assets/resultPage.png)
 
 **Job info page**
-![Job info page]()
+![Job info page](src/assets/jobInfoPage.png)
 
 
 ## ✍️ Authors 
