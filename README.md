@@ -1,38 +1,49 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/6VsM7MHT)
-# Skapa en egen Platsbanken för ert drömscenario 
 
-Dokumentation om Arbetsförmedlingens öppna data finns på https://jobtechdev.se. All öppna data från arbetsförmedlingen och andra offentliga organisationen går även att hitta direkt på dataportal.se. 
-I detta dokument ges två förslag på användningsfall som vi tror är lämpliga för studenter som vill utveckla en applikation på riktig data. All data som är öppna data får vem som helst använda utan att fråga myndigheten om lov, så ingen är begränsad till de exempel vi ger.
+# Group Project – Build your own “Platsbanken” (job board) for a scenario of your choice using Arbetsförmedlingen’s open data..
 
-Läs först igenom kom-igång hjälpen 
+## 📖 Project Overview
 
--  [Övergripande dokumentation API:etJobSearch](https://jobtechdev.se/sv/components/jobsearch)
--  [Kom-igång guide](https://gitlab.com/arbetsformedlingen/education/education-api/-/blob/main/GETTING_STARTED.md)
+Karriärkompassen is a React-based job board that aggregates live job ads across Sweden using Arbetsförmedlingen’s JobTech open data https://jobsearch.api.jobtechdev.se/. 
 
-## Prova att utforska datan med vår interaktiva tjänst 
+The app lets users search and filter jobs, view rich job details, save favorites, and read practical career articles.
 
-Görs genom att öppna Swagger-sidan för API:et (för att enkelt testa olika endpoints i API:et och läsa dokumentation för respektive endpoint): Search job ads (jobtechdev.se) 
+As per assignment requirements we use components from Arbetsförmedlingens Design system but we do not use there Logo or colors. 
 
-## Uppgift 
+## Features
+* <strong>Search & filter</strong><br>Free-text search with filters for region (län) and occupation.
 
-Använd endpoint https://jobsearch.api.jobtechdev.se/ för att använda/söka bland befintliga annonser. 
-Det går även bra att använda historiska annonser om ni vill jämföra aktuella annonser med hur det har sett ut tidigare. Detta api finns här: Historical job ads (jobtechdev.se)
+* <strong>Results & details</strong><br>Result cards with key facts; a dedicated job page with employer info, location, qualifications, and a sticky “Apply” card that links to the employer/application site.
 
-Om möjligt, använd en grafisk presentation av era resultat genom t.ex. stapeldiagram eller linjegrafer.
+* <strong>Saved jobs</strong><br>Toggle a heart on any result to save/unsave; a dedicated Saved page lists favorites. Persistence via localStorage.
 
-**Observera**
-Er slutprodukt ska ej innehålla Arbetsförmedlingens logga eller färger. Anpassa gärna efter eget tycke och smak så att ni har en färgpalett och en god tanke bakom. 
+* <strong>Articles & tips</strong><br>Curated guides for CV, interview, and salary negotiation, accessible from the homepage.
 
-## Betygskriterier 
+* <strong>Robust routing</strong><br>HashRouter with a custom 404 page and deep links (e.g., #/result/:id, #/artiklar/:slug, #/sparade).
 
-### Need-to-have (G) 
-- Ni har hämtat data på ett strukturerat sätt med hjälp av antingen fetch eller axios. 
-- Ni har skapat en tjänst som ni använder för att hämta data. 
-- Ni använder react-koncept vi har pratat om för att göra datan tillgänglig (context, state, routing et.c.). 
-- Ni använder den syntax, namngivningsstandard samt skrivsätt som vi har lärt er.  
-- Ni använder designsystemet för presentation. 
+* <strong>Design system integration</strong><br>Built with @digi/arbetsformedlingen web components and React wrappers for accessible, consistent UI.
 
-### Nice-to-have (Extra bonus) 
-- Styled components (som drar nytta av designsystemet) 
-- Grafisk presentation av datat 
-- Användning av custom hook där det finns möjlighet
+
+## 🎥 Demo 
+[Click here to view the demo](https://medieinstitutet.github.io/fed24d-case-af-jobtech-group-5-1/)
+
+## 📸 Screenshots 
+
+**Start page**
+![Start page](src/assets/startPage.png)
+
+**Result page**
+![Result page](src/assets/resultPage.png)
+
+**Job info page**
+![Job info page](src/assets/jobInfoPage.png)
+
+
+## ✍️ Authors 
+Created by: 	
+- [Anna Biehl](https://github.com/biehlen) 
+- [Moa Magnfors](https://github.com/mainforce) 
+- [Sokol Hatija](https://github.com/koliwewe) 
+
+
+## 🤝 Credits
+This project was developed as part of the curriculum at [Medieinstitutet](https://medieinstitutet.se/) during our second year of studies.
