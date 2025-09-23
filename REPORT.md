@@ -44,20 +44,21 @@ Er slutprodukt ska ej innehålla Arbetsförmedlingens logga eller färger. Anpas
 
 
 ## 🏆 **Betyg: G**
-📌 **Motivering:** Uppgiften uppfyller G‑kraven: data hämtas strukturerat via fetch i en tydligt kapslad tjänst (custom hook useJobs), React‑koncept (context, reducer/state, routing) används korrekt, designsystemet används konsekvent och AF:s logga/färger är ersatta av egen profil. Koden är till största delen idiomatisk TypeScript/React och appen har extra funktionalitet som sparade jobb i localStorage.
+📌 **Motivering:** Ni uppfyller samtliga G-krav: data hämtas strukturerat via fetch i en tydlig tjänst (custom hook useJobs), global state hanteras med Context + reducer, routing är korrekt konfigurerad (hash router), namngivning/struktur är genomgående bra och designsystemet används konsekvent (Digi-komponenter) med egen färgpalett och utbytt logotyp. Helheten är välbyggd och användbar.
 
 💡 **Förbättringsförslag:**  
-- Semantik och tillgänglighet: I ResultCard returneras <li> inuti en <div>, vilket bryter listsemantiken. Låt <li> vara direkt barn till <ul> och flytta card‑wrappen in i li (eller gör kortet till <li> och ta bort ytterdiven). Undvik klick på hela li; använd länk/knapp till detaljsidan.
-- Deep link/refresh: SingleJobPage förlitar sig på state.selectedJob. Vid direktlänk/refresh (result/:id) blir sidan tom. Hämta annonsen baserat på :id (t.ex. via /search?ids= eller dedikerad endpoint) när selectedJob saknas.
-- Laddning/empty state: useJobs saknar loading/error‑tillstånd. Nu visas spinner när hits.length === 0, även när sökningen gav 0 träffar. Lägg till loading och error i hooken, visa "Inga annonser matchade" när 0 träffar utan fel, och felmeddelande vid nätverksfel (kontrollera res.ok innan res.json()).
-- Paginering: Återställ currentPage till 1 när q/region/occupation ändras. Annars kan offset hamna utanför ny resultatuppsättning och ge tom vy.
-- Ansök‑länk: applyHref byggs från application_details.url || employer.url, men rendern i aside kräver employer.url. Byt villkor till if (applyHref) och använd den i länken.
-- XSS‑skydd: Ni använder dangerouslySetInnerHTML för annonsbeskrivning och artiklar. Sanera HTML (t.ex. DOMPurify) innan render.
-- Header‑logga: MutationObserver som byter bild i DigiHeader är skört. Försök använda exponerade slots/attribut i komponenten eller lägg en egen logga i headern och dölj standardsymbolen via dokumenterade CSS‑variabler i stället för att manipulera shadow‑DOM.
-- Typning: Ersätt any i event‑handlers (onAfOnSubmitSearch, onAfSubmitFilter) med korrekta CustomEvent‑typer eller egna typer med detail‑shape. Det förbättrar DX och minskar buggrisk.
-- SEO/metadata: Rätta og:url (har "https://https://...") och fixa og/canonical‑URL. JSON‑LD innehåller en avslutande komma efter author‑arrayn vilket gör den ogiltig.
-- UX: Visa feedback när ett jobb sparas/avmarkeras, och överväg att disable/markera "Spara"‑knappen när jobbet redan är sparat.
-- Nice‑to‑have för högre betyg: Lägg till grafisk presentation (t.ex. fördelning per län/yrkesgrupp med Recharts/Chart.js) och autocomplete via /complete‑endpoint (debounce + visning av förslag).
+- Detaljsida för annons: sidan är beroende av state.selectedJob. Vid sidladdning/direktlänk blir annonsen tom. Hämta annons via route-param id i SingleJobPage som fallback.
+- Sök/Autocomplete: använd /complete-endpointen för sökförslag och lägg till debounce i fritextsökningen.
+- Grafisk presentation: lägg till stapel-/linjediagram (t.ex. annonser per län eller över tid via Historical API) för att få bonuspoäng.
+- Fel- och tomtillstånd: visa tydliga felmeddelanden vid nätverksfel, och skeleton/empty-state när inga träffar finns.
+- Pagination: ni sätter afInitActivePage till 1 men komponenten styrs inte av currentPage. Säkerställ att aktiv sida synkas (t.ex. key:a komponenten på filter/state eller använd kontrollerat läge om tillgängligt). Återställ currentPage till 1 när filter/sök ändras.
+- Tillgänglighet: lägg aria-pressed på spara-knappen för att indikera togglat tillstånd och komplettera ikonknapp med screenreader-text. Se över tabb-ordning och länkar som ser ut som knappar.
+- Länkar i footer: byt href="#" till riktiga länkar eller knappar för bättre a11y och UX.
+- Säkerhet/HTML: description.text_formatted renderas via dangerouslySetInnerHTML. Överväg att sanera HTML (ex. DOMPurify) innan render.
+- Meta/SEO: og:url har dubbla https och JSON-LD innehåller en avslutande komma som gör den ogiltig. Rätta dessa och överväg att lägga till SearchAction.
+- Kodstädning: det verkar finnas två versioner av formatDateTime i koden. Samla till en och gör "igår"-logiken robust över månadsgränser.
+- Event-typer: undvik any i onAfOnSubmitSearch/onAfSubmitFilter. Typa Digi-event korrekt (CustomEvent<T>) för bättre TS-stöd.
+- Nätverk: använd AbortController för att avbryta pågående fetch vid snabba filterändringar och överväg enkel caching för sidpaginering.
 
 ## 👥 Gruppbidrag
 
