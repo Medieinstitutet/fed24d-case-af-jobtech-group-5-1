@@ -1,6 +1,7 @@
 # 📌 Rättningsrapport – fed24d-case-af-jobtech-group-5-1
 
 ## 🎯 Uppgiftens Krav:
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/6VsM7MHT)
 # Skapa en egen Platsbanken för ert drömscenario 
 
 Dokumentation om Arbetsförmedlingens öppna data finns på https://jobtechdev.se. All öppna data från arbetsförmedlingen och andra offentliga organisationen går även att hitta direkt på dataportal.se. 
@@ -8,17 +9,17 @@ I detta dokument ges två förslag på användningsfall som vi tror är lämplig
 
 Läs först igenom kom-igång hjälpen 
 
--  [Övergripande dokumentation API:etJobSearch](https://data.arbetsformedlingen.se/data/platsannonser/)
--  [Kom-igång guide](https://gitlab.com/arbetsformedlingen/job-ads/jobsearch/jobsearch-api/-/blob/main/docs/GettingStartedJobSearchSE.md)
+-  [Övergripande dokumentation API:etJobSearch](https://jobtechdev.se/sv/components/jobsearch)
+-  [Kom-igång guide](https://gitlab.com/arbetsformedlingen/education/education-api/-/blob/main/GETTING_STARTED.md)
 
 ## Prova att utforska datan med vår interaktiva tjänst 
 
-Görs genom att öppna Swagger-sidan för API:et (för att enkelt testa olika endpoints i API:et och läsa dokumentation för respektive endpoint): [Search job ads (jobtechdev.se)](https://jobsearch.api.jobtechdev.se/)
+Görs genom att öppna Swagger-sidan för API:et (för att enkelt testa olika endpoints i API:et och läsa dokumentation för respektive endpoint): Search job ads (jobtechdev.se) 
 
 ## Uppgift 
 
-Använd endpoint **/search** för att söka bland befintliga annonser. 
-Det går även bra att använda historiska annonser om ni vill jämföra aktuella annonser med hur det har sett ut tidigare. Detta api finns här: [Historical job ads (jobtechdev.se)](https://historical.api.jobtechdev.se/)
+Använd endpoint https://jobsearch.api.jobtechdev.se/ för att använda/söka bland befintliga annonser. 
+Det går även bra att använda historiska annonser om ni vill jämföra aktuella annonser med hur det har sett ut tidigare. Detta api finns här: Historical job ads (jobtechdev.se)
 
 Om möjligt, använd en grafisk presentation av era resultat genom t.ex. stapeldiagram eller linjegrafer.
 
@@ -38,27 +39,26 @@ Er slutprodukt ska ej innehålla Arbetsförmedlingens logga eller färger. Anpas
 - Styled components (som drar nytta av designsystemet) 
 - Grafisk presentation av datat 
 - Användning av custom hook där det finns möjlighet
-- Använd endpoint /complete för att lägga till autocomplete-funktion och få förslag på begrepp vid fritextsökning
 
 ## 🔍 ESLint-varningar:
 
 
 ## 🏆 **Betyg: G**
-📌 **Motivering:** Ni uppfyller samtliga G-krav: data hämtas strukturerat via fetch i en tydlig tjänst (custom hook useJobs), global state hanteras med Context + reducer, routing är korrekt konfigurerad (hash router), namngivning/struktur är genomgående bra och designsystemet används konsekvent (Digi-komponenter) med egen färgpalett och utbytt logotyp. Helheten är välbyggd och användbar.
+📌 **Motivering:** Uppfyller G-kraven: data hämtas strukturerat via fetch i en egen tjänst/hook (useJobs), global state hanteras med Context + reducer, routing är implementerad (hash-router för GitHub Pages), och designsystemet används konsekvent med egen färgpalett och utbytt logotyp. Kodbasen är överlag prydlig, typed med TypeScript och har bra komponentstruktur.
 
 💡 **Förbättringsförslag:**  
-- Detaljsida för annons: sidan är beroende av state.selectedJob. Vid sidladdning/direktlänk blir annonsen tom. Hämta annons via route-param id i SingleJobPage som fallback.
-- Sök/Autocomplete: använd /complete-endpointen för sökförslag och lägg till debounce i fritextsökningen.
-- Grafisk presentation: lägg till stapel-/linjediagram (t.ex. annonser per län eller över tid via Historical API) för att få bonuspoäng.
-- Fel- och tomtillstånd: visa tydliga felmeddelanden vid nätverksfel, och skeleton/empty-state när inga träffar finns.
-- Pagination: ni sätter afInitActivePage till 1 men komponenten styrs inte av currentPage. Säkerställ att aktiv sida synkas (t.ex. key:a komponenten på filter/state eller använd kontrollerat läge om tillgängligt). Återställ currentPage till 1 när filter/sök ändras.
-- Tillgänglighet: lägg aria-pressed på spara-knappen för att indikera togglat tillstånd och komplettera ikonknapp med screenreader-text. Se över tabb-ordning och länkar som ser ut som knappar.
-- Länkar i footer: byt href="#" till riktiga länkar eller knappar för bättre a11y och UX.
-- Säkerhet/HTML: description.text_formatted renderas via dangerouslySetInnerHTML. Överväg att sanera HTML (ex. DOMPurify) innan render.
-- Meta/SEO: og:url har dubbla https och JSON-LD innehåller en avslutande komma som gör den ogiltig. Rätta dessa och överväg att lägga till SearchAction.
-- Kodstädning: det verkar finnas två versioner av formatDateTime i koden. Samla till en och gör "igår"-logiken robust över månadsgränser.
-- Event-typer: undvik any i onAfOnSubmitSearch/onAfSubmitFilter. Typa Digi-event korrekt (CustomEvent<T>) för bättre TS-stöd.
-- Nätverk: använd AbortController för att avbryta pågående fetch vid snabba filterändringar och överväg enkel caching för sidpaginering.
+- Deep-linking: SingleJobPage bygger på selectedJob i Context. Vid uppdatering eller direktlänk till /result/:id saknas data. Lägg till fetch av enskild annons via id (egen hook/useJobById) och fallbacka på den när selectedJob är null.
+- Laddning/empty state: ResultsComponent visar spinner när jobs.length === 0, även om sökningen gav 0 träffar. Inför isLoading/isError i useJobs och visa tydligt “Inga annonser matchade din sökning” när färdigladdat men 0 resultat.
+- Återställ pagination: Nollställ currentPage till 1 när query/region/occupation ändras (useEffect) så att man inte hamnar på en tom sida efter filterbyte.
+- Fel- och avbrottshantering: Kontrollera res.ok före res.json(), fånga och exponera felmeddelanden, och använd AbortController för att avbryta pågående fetch vid snabba filterändringar.
+- Typsäkerhet för events: Ersätt any i onAfOnSubmitSearch/onAfSubmitFilter/onAfOnPageChange med korrekta typer för CustomEvent och definiera e.detail-typerna (t.ex. egen interface) så kompilatorn hjälper till.
+- Duplicerad util: formatDateTime verkar finnas i två varianter. Konsolidera till en funktion och använd samma format överallt.
+- Säkerhet/HTML: job.description.text_formatted renderas med dangerouslySetInnerHTML. Överväg att sanera HTML (t.ex. DOMPurify) innan render.
+- Header-logga: MutationObserver-hacket för att byta logga fungerar men är skört. Om komponenten stödjer slot/prop för logga, använd det i stället för DOM-manipulation.
+- Meta/SEO: og:url har "https://https://" (dubbelt https). JSON-LD har en trailing comma vilket gör den ogiltig. Rätta båda.
+- Datakällor för filter: Region- och yrkeskoder är hårdkodade. Bonus: hämta taxonomi dynamiskt från Jobtechs API så hålls listorna uppdaterade.
+- Tillgänglighet: Lägg till aria-label på Spara/Ta bort-knapparna i ResultCard och säkerställ fokusmarkeringar. Visa antal träffar även textuellt för skärmläsare.
+- UI: Visa ansökningsknapp även när endast application_details.url finns (ni normaliserar redan, villkoret i sidan kan förenklas till att bygga och använda applyHref).
 
 ## 👥 Gruppbidrag
 
